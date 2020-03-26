@@ -1,4 +1,4 @@
-CREATE DATABASE USE [model]
+CREATE DATABASE [model]
 GO
 /****** Object:  Table [dbo].[Aluno]    Script Date: 24/03/2020 19:55:08 ******/
 SET ANSI_NULLS ON
