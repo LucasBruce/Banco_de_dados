@@ -1,0 +1,66 @@
+CREATE DATABASE USE [model]
+GO
+/****** Object:  Table [dbo].[Aluno]    Script Date: 24/03/2020 19:55:08 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Aluno](
+	[Id_Aluno] [int] NOT NULL,
+	[Nome] [varchar](60) NOT NULL,
+	[Curso] [varchar](50) NOT NULL,
+ CONSTRAINT [PK_Aluno] PRIMARY KEY CLUSTERED 
+(
+	[Id_Aluno] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Itens_Sala]    Script Date: 24/03/2020 19:55:08 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Itens_Sala](
+	[Id_Sala] [int] NOT NULL,
+	[Qtd_Lugar] [int] NOT NULL,
+	[Projetor] [bit] NOT NULL,
+	[Quadro_Negro] [bit] NOT NULL,
+ CONSTRAINT [PK_Itens_Sala] PRIMARY KEY CLUSTERED 
+(
+	[Id_Sala] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Professor]    Script Date: 24/03/2020 19:55:08 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Professor](
+	[Id_Prof] [int] NOT NULL,
+	[Nome_Prof] [varchar](60) NOT NULL,
+	[Diciplina] [varchar](60) NOT NULL,
+ CONSTRAINT [PK_Professor] PRIMARY KEY CLUSTERED 
+(
+	[Id_Prof] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Sala]    Script Date: 24/03/2020 19:55:08 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Sala](
+	[Id_Sala] [int] NOT NULL,
+	[Id_Prof] [int] NOT NULL,
+	[Id_Aluno] [int] NOT NULL,
+	[Horario] [time](7) NOT NULL,
+	[Duracao] [int] NOT NULL,
+ CONSTRAINT [PK_Sala] PRIMARY KEY CLUSTERED 
+(
+	[Id_Sala] ASC,
+	[Id_Prof] ASC,
+	[Id_Aluno] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
